@@ -219,7 +219,7 @@ const Campaign = () => {
                 <input 
                   type="text" 
                   className="w-full p-2 border rounded-md"
-                  defaultValue="20%"
+                  value="20%"
                 />
               </div>
             </div>
@@ -240,11 +240,11 @@ const Campaign = () => {
               
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <input type="checkbox" className="mr-2" checked />
+                  <input type="checkbox" className="mr-2" defaultChecked />
                   <label>Full Name</label>
                 </div>
                 <div className="flex items-center">
-                  <input type="checkbox" className="mr-2" checked />
+                  <input type="checkbox" className="mr-2" defaultChecked />
                   <label>Email Address</label>
                 </div>
                 <div className="flex items-center">
@@ -252,7 +252,7 @@ const Campaign = () => {
                   <label>Phone Number</label>
                 </div>
                 <div className="flex items-center">
-                  <input type="checkbox" className="mr-2" />
+                  <input type="checkbox" className="mr-2" defaultChecked />
                   <label>Agree to Terms & Conditions & Opt-in</label>
                 </div>
               </div>
