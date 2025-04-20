@@ -17,6 +17,7 @@ export default function SignUp() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Add your authentication logic here
+    router.push("/platform");
     console.log("Form submitted:", { email, password });
   };
 
