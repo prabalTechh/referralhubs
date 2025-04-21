@@ -9,6 +9,7 @@ import Promoters from "../../pages/Promoters";
 import Payouts from "../../pages/Payouts";
 import Leads from "../../pages/Leads";
 import AIAssistant from "../../pages/AiAssistant";
+import { Bell } from "lucide-react";
 
 type Page =
   | "Platform Setup"
@@ -165,6 +166,7 @@ const PlatformLayout = () => {
         <header className="h-16 flex items-center justify-between px-6 border-b border-[#dfe1ed]">
           <h1 className="text-lg font-medium">{activePage}</h1>
           <div className="flex items-center gap-4">
+            <Bell className="text-[#305AFF]" />
             <img
               src="/avatar.png"
               alt="avatar"
