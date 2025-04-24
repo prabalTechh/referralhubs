@@ -19,6 +19,7 @@ import { LeadsIcon } from "@/components/svg/LeadsIcon";
 import { PayoutsIcon } from "@/components/svg/PayoutsIcon";
 import { SettingsIcon } from "@/components/svg/SettingsIcon";
 import { HelpIcon } from "@/components/svg/HelpIcon";
+import { TourContext } from "../contexts/TourContext";
 
 type Page =
   | "Platform Setup"
@@ -28,8 +29,6 @@ type Page =
   | "Promoters"
   | "Leads"
   | "Payouts";
-
-// Define the sidebar tooltips content
 
 // Define the onboarding tour content
 const onboardingSteps = [
@@ -81,12 +80,11 @@ const dummyPages: Record<Page, React.ReactNode> = {
   Payouts: <Payouts />,
 };
 
-const TourContext = React.createContext({
-  tourCompleted: false,
-  setTourCompleted: (value: boolean) => {},
-});
-
-const PlatformLayout = ({ initialShowTour = true }) => {
+export default function PlatformLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [activePage, setActivePage] = useState<Page>("Platform Setup");
   const [tourCompleted, setTourCompleted] = useState(false);
   const targetRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -249,6 +247,7 @@ const PlatformLayout = ({ initialShowTour = true }) => {
 
           <main className="flex-1 overflow-y-auto mx-6 p-2 bg-[#FFFFFF]">
             {dummyPages[activePage]}
+            {children}
           </main>
         </div>
 
@@ -362,7 +361,4 @@ const PlatformLayout = ({ initialShowTour = true }) => {
       </div>
     </TourContext.Provider>
   );
-};
-
-export { TourContext };
-export default PlatformLayout;
+}
