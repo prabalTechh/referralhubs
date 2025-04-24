@@ -1,6 +1,7 @@
 // app/dashboard/page.tsx
 import React from "react";
 import { motion } from "framer-motion";
+import { BarChart2, DollarSign, TrendingDown, Users } from "lucide-react";
 
 const Dashboard: React.FC = () => {
   return (
@@ -29,6 +30,103 @@ const Dashboard: React.FC = () => {
           </motion.button>
         </div>
       </motion.div>
+
+      <div className="flex w-full justify-between items-stretch gap-6 mb-6 bg-white">
+  {/* Total Promoters */}
+  <motion.div
+    className="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 flex-1"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.6 }}
+    whileHover={{
+      y: -5,
+      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+    }}
+  >
+    <div className="rounded-full bg-gray-100 p-3 flex items-center justify-center">
+      <Users size={20} className="text-gray-500" />
+    </div>
+    <div className="flex-1">
+      <div className="text-gray-500 text-sm">Total Promoters</div>
+      <div className="text-lg font-semibold text-gray-900">1,234</div>
+      <div className="flex items-center mt-1">
+        <span className="text-green-500 text-xs font-medium">+12%</span>
+        <span className="text-gray-400 text-xs ml-1">vs last month</span>
+      </div>
+    </div>
+  </motion.div>
+
+  {/* Conversion Rate */}
+  <motion.div
+    className="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 flex-1"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.7 }}
+    whileHover={{
+      y: -5,
+      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+    }}
+  >
+    <div className="rounded-full bg-orange-50 p-3 flex items-center justify-center">
+      <TrendingDown size={20} className="text-orange-400" />
+    </div>
+    <div className="flex-1">
+      <div className="text-gray-500 text-sm">Conversion Rate</div>
+      <div className="text-lg font-semibold text-gray-900">23.5%</div>
+      <div className="flex items-center mt-1">
+        <span className="text-red-500 text-xs font-medium">-2.4%</span>
+        <span className="text-gray-400 text-xs ml-1">vs last month</span>
+      </div>
+    </div>
+  </motion.div>
+
+  {/* Revenue Generated */}
+  <motion.div
+    className="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 flex-1"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.8 }}
+    whileHover={{
+      y: -5,
+      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+    }}
+  >
+    <div className="rounded-full bg-pink-50 p-3 flex items-center justify-center">
+      <DollarSign size={20} className="text-pink-400" />
+    </div>
+    <div className="flex-1">
+      <div className="text-gray-500 text-sm">Revenue Generated</div>
+      <div className="text-lg font-semibold text-gray-900">$12,345</div>
+      <div className="flex items-center mt-1">
+        <span className="text-green-500 text-xs font-medium">+8.7%</span>
+        <span className="text-gray-400 text-xs ml-1">vs last month</span>
+      </div>
+    </div>
+  </motion.div>
+
+  {/* Active Campaigns */}
+  <motion.div
+    className="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 flex-1"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.9 }}
+    whileHover={{
+      y: -5,
+      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+    }}
+  >
+    <div className="rounded-full bg-blue-50 p-3 flex items-center justify-center">
+      <BarChart2 size={20} className="text-blue-400" />
+    </div>
+    <div className="flex-1">
+      <div className="text-gray-500 text-sm">Active Campaigns</div>
+      <div className="text-lg font-semibold text-gray-900">3</div>
+      <div className="flex items-center mt-1">
+        <span className="text-gray-400 text-xs">vs 3 last month</span>
+      </div>
+    </div>
+  </motion.div>
+</div>
 
       {/* Circular Progress KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
@@ -60,7 +158,7 @@ const Dashboard: React.FC = () => {
         ].map((card, index) => (
           <motion.div
             key={index}
-            className="bg-white p-4 rounded-lg shadow-sm border border-gray-200"
+            className="bg-white p-4 rounded-lg shadow-sm "
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -162,64 +260,10 @@ const Dashboard: React.FC = () => {
         ))}
       </div>
 
-      {/* KPI Cards (Original ones if you want to keep them) */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-        {[
-          {
-            title: "Repeat Request Rate",
-            value: "1.24%",
-            percent: "41%",
-            color: "green",
-          },
-          {
-            title: "Referral Engagement Rate",
-            value: "23.5%",
-            percent: "6%",
-            color: "red",
-          },
-          {
-            title: "Revenue Comparison",
-            value: "$12,345",
-            percent: "36%",
-            color: "blue",
-          },
-          {
-            title: "Uplift Rate of Leads",
-            value: "10%",
-            percent: "10%",
-            color: "purple",
-          },
-        ].map((card, index) => (
-          <motion.div
-            key={index}
-            className="bg-white p-4 rounded-lg shadow-sm border border-gray-200"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-            whileHover={{
-              y: -5,
-              boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-            }}
-          >
-            <div className="text-gray-600 text-sm">{card.title}</div>
-            <div className="text-2xl font-semibold text-gray-900">
-              {card.value}
-            </div>
-            <div
-              className={`w-16 h-16 bg-${card.color}-100 rounded-full flex items-center justify-center mt-2`}
-            >
-              <span className={`text-${card.color}-600 text-sm`}>
-                {card.percent}
-              </span>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
       {/* Charts Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <motion.div
-          className="bg-white p-4 rounded-lg shadow-sm border border-gray-200"
+          className="bg-white p-4 rounded-lg shadow-sm "
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
@@ -229,7 +273,7 @@ const Dashboard: React.FC = () => {
               Promoter Performance Over Time
             </h2>
             <motion.button
-              className="border border-gray-300 rounded-md px-3 py-1 text-sm text-gray-600 flex items-center"
+              className="shadow rounded-md px-3 py-1 text-sm text-gray-600 flex items-center"
               whileHover={{ scale: 1.02 }}
             >
               Last 6 months{" "}
@@ -360,7 +404,7 @@ const Dashboard: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="bg-white p-4 rounded-lg shadow-sm border border-gray-200"
+          className="bg-white p-4 rounded-lg shadow-sm "
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
@@ -371,7 +415,7 @@ const Dashboard: React.FC = () => {
             </h2>
           </div>
 
-          <div className="h-64 flex flex-col space-y-4">
+          <div className=" flex flex-col space-y-4">
             {/* Donut Chart Section */}
             <div className="flex items-center justify-center relative">
               <motion.svg
@@ -463,7 +507,7 @@ const Dashboard: React.FC = () => {
       {/* Additional Metrics */}
       {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <motion.div
-          className="bg-white p-4 rounded-lg shadow-sm border border-gray-200"
+          className="bg-white p-4 rounded-lg shadow-sm "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.2 }}
@@ -507,7 +551,7 @@ const Dashboard: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="bg-white p-4 rounded-lg shadow-sm border border-gray-200"
+          className="bg-white p-4 rounded-lg shadow-sm "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.2 }}
@@ -561,7 +605,7 @@ const Dashboard: React.FC = () => {
 
       {/*activity */}
       <motion.div
-        className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-6"
+        className="bg-white p-4 rounded-lg shadow-sm  mb-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.2 }}
@@ -631,7 +675,7 @@ const Dashboard: React.FC = () => {
 
       {/* Leaderboard Table */}
       <motion.div
-        className="bg-white p-4 rounded-lg shadow-sm border border-gray-200"
+        className="bg-white p-4 rounded-lg shadow-sm "
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.4 }}

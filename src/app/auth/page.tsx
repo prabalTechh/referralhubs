@@ -28,21 +28,18 @@ export default function AuthPage() {
   return (
     <div className="min-h-screen text-sm py-4 flex flex-col items-center max-w-screen justify-center bg-[#F5F5F5] relative ">
       {/* Wave backgrounds */}
-      <div className="fixed top-0 left-0 w-screen h-screen">
-        <WaveBackground className="absolute top-[312px] w-screen " />
-        <WaveBackground2 className="absolute top-[60px] w-screen" />
-      </div>
-      <div className="text-center mb-8">
-        <h1 className="text-[30px] font-semibold text-[#333333] mb-2">
+      
+      <div className="text-center space-y-2  mb-4">
+        <h1 className="text-3xl font-semibold text-[#333333] ">
           Login to ReferralHub
         </h1>
-        <p className="text-base text-[#666666]">
+        <p className="text-sm text-[#666666]">
           Please enter your details to sign in
         </p>
       </div>
-      <div className="min-w-xl bg-white rounded-2xl shadow-lg py-5 px-10 relative z-10">
-        <div className="space-y-2">
-          <Button className="w-full px-4 rounded-lg py-3 border-2  border-[#4F46E5]  text-[#4F46E5] ">
+      <div className="min-w-md lg:min-w-lg bg-white rounded-2xl shadow-lg py-5 px-10 relative z-10">
+        <div className="space-y-2 text-sm">
+          <Button className="w-full px-4 rounded-lg py-3 border-2   border-[#4F46E5]  text-[#4F46E5] ">
             Continue with Google/Microsoft
           </Button>
           <div>
@@ -79,7 +76,7 @@ export default function AuthPage() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3">
           <div className="space-y-2">
             <div>
               <label
@@ -153,17 +150,17 @@ export default function AuthPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-4 ml-8 ">
-            <button className="flex items-center justify-center size-20    rounded-full hover:bg-[#E5E5E5] transition-colors">
+          <div className="container inline-flex  items-center justify-center gap-4 ">
+            <button className="flex items-center justify-center size-12     rounded-full hover:bg-[#E5E5E5] transition-colors">
               <Google />
             </button>
-            <button className="flex items-center justify-center size-20  rounded-full hover:bg-[#E5E5E5] transition-colors">
+            <button className="flex items-center justify-center size-12   rounded-full hover:bg-[#E5E5E5] transition-colors">
               <Facebook />
             </button>
-            <button className="flex items-center justify-center size-20  rounded-full hover:bg-[#E5E5E5] transition-colors">
+            <button className="flex items-center justify-center size-12   rounded-full hover:bg-[#E5E5E5] transition-colors">
               <X />
             </button>
-            <button className="flex items-center justify-center size-20  rounded-full hover:bg-[#E5E5E5] transition-colors">
+            <button className="flex items-center justify-center size-12   rounded-full hover:bg-[#E5E5E5] transition-colors">
               <Linkedin />
             </button>
           </div>
@@ -180,6 +177,10 @@ export default function AuthPage() {
             </p>
           </div>
         </form>
+      </div>
+      <div className="fixed top-0 left-0 w-screen  hidden lg:block">
+        <WaveBackground2 className="absolute top-[60px] w-full   " />
+        <WaveBackground className="absolute top-[280px] w-full " />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { Search, Filter, Plus, Trash2, Eye } from 'lucide-react';
+import { Search, Filter, Plus, Trash2, Eye, EyeClosed } from 'lucide-react';
 
 const Campaign = () => {
   const [activeTab, setActiveTab] = useState('past');
@@ -32,7 +32,7 @@ const Campaign = () => {
   ];
 
   const renderTabs = () => (
-    <div className="flex space-x-2 mb-6">
+    <div className="flex space-x-2 mb-6 text-sm">
       <button 
         className={`px-4 py-2 rounded-md ${activeTab === 'past' ? 'bg-blue-100 text-blue-600' : 'text-gray-600'}`}
         onClick={() => setActiveTab('past')}
@@ -57,20 +57,20 @@ const Campaign = () => {
   const renderPastPromoters = () => (
     <div className="w-full">
       <div className="flex justify-between mb-6">
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-md flex items-center">
+        <button className="bg-blue-600 text-sm text-white px-4 py-2 rounded-md flex items-center">
           <Plus size={18} className="mr-2" />
           Create New Campaign
         </button>
         <div className="flex space-x-2">
           <div className="relative">
-            <Search size={16} className="absolute left-3 top-3 text-gray-400" />
+            <Search size={16} className="absolute left-3 top-2 text-gray-400" />
             <input 
               type="text" 
               placeholder="Search campaigns..." 
-              className="pl-10 pr-4 py-2 border border-[#AAAAAA] rounded-md w-64"
+              className="pl-10 pr-4 py-2 border border-[#AAAAAA] text-xs rounded-md w-64"
             />
           </div>
-          <button className="border border-[#AAAAAA] rounded-md px-4 py-2 flex items-center">
+          <button className="border text-xs border-[#AAAAAA] rounded-md px-4 py-2 flex items-center">
             <Filter size={16} className="mr-2" />
             Filter
           </button>
@@ -81,10 +81,10 @@ const Campaign = () => {
         2 Campaigns • 1 Active
       </div>
 
-      <div className="grid grid-cols-2 border-[#AAAAAA] gap-6">
+      <div className="flex gap-6"> 
         {campaigns.map(campaign => (
-          <div key={campaign.id} className="border border-[#AAAAAA] rounded-lg overflow-hidden">
-            <div className="px-4 py-3 flex justify-between items-center border-b border-[#AAAAAA]">
+          <div key={campaign.id} className="bg-gray-50 max-w-sm   rounded-lg overflow-hidden">
+            <div className="px-4 py-3 flex justify-between items-center border-b border-[#DDDDDD]">
               <div>
                 <h3 className="font-medium">{campaign.name}</h3>
                 <p className="text-sm text-gray-500">{campaign.dateRange}</p>
@@ -94,7 +94,7 @@ const Campaign = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-3 divide-x border-[#AAAAAA] ">
+            <div className="grid grid-cols-3   ">
               <div className="px-4 py-3 text-center">
                 <p className="text-sm text-gray-500">Referrals</p>
                 <p className="font-semibold text-lg">{campaign.referrals}</p>
@@ -109,16 +109,16 @@ const Campaign = () => {
               </div>
             </div>
             
-            <div className={`px-4 py-3 ${campaign.status === 'active' ? 'bg-blue-50' : 'bg-purple-50'}`}>
-              <p className="text-sm flex items-start">
-                <span className="inline-block w-2 h-2 rounded-full bg-blue-600 mt-1.5 mr-2"></span>
+            <div className={`px-4  shadow-sm mt-4 mx-14 py-5 ${campaign.status === 'active' ? 'bg-blue-50' : 'bg-purple-50'}`}>
+              <p className="text-sm flex items-start gap-2">
+                <span className="p-2 rounded-full bg-blue-300 text-xs "><Eye size={10}/></span>
                 {campaign.suggestion}
               </p>
             </div>
             
-            <div className="px-4 py-3 flex space-x-4 text-gray-500">
+            <div className="px-4 py-3 flex justify-between text-gray-500">
               <button className="flex items-center">
-                <Trash2 size={16} className="mr-1" />
+                <Trash2 size={16} className="mr-1 text-red-500" />
               </button>
               <button className="flex items-center">
                 <Eye size={16} className="mr-1" />
@@ -148,7 +148,7 @@ const Campaign = () => {
   );
 
   const renderNewPromoterForm = () => (
-    <div className="w-full bg-white p-6 rounded-lg">
+    <div className="w-full bg-white p-6 rounded-lg text-sm">
       {renderFormTabs()}
       
       <div className="space-y-6">
@@ -156,7 +156,7 @@ const Campaign = () => {
           <label className="block mb-2 font-medium">Campaign Name</label>
           <input 
             type="text" 
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-md text-xs"
             defaultValue="Summer Referral Special"
           />
         </div>
@@ -186,7 +186,7 @@ const Campaign = () => {
                 <label className="block mb-2 font-medium">Reward Value*</label>
                 <input 
                   type="text" 
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border rounded-md text-xs"
                   value={rewardType === 'points' ? '200 points' : '20%'}
                 />
               </div>
@@ -195,7 +195,7 @@ const Campaign = () => {
             <div>
               <label className="block mb-2 font-medium">Promoter Message*</label>
               <textarea 
-                className="w-full p-2 border rounded-md h-24"
+                className="w-full p-2 border rounded-md h-24 text-xs"
                 value="Hey! Share this with your friends and get $20 for each successful signup!"
               ></textarea>
             </div>
@@ -218,7 +218,7 @@ const Campaign = () => {
                 <label className="block mb-2 font-medium">Reward Value*</label>
                 <input 
                   type="text" 
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border rounded-md text-xs"
                   value="20%"
                 />
               </div>
@@ -227,7 +227,7 @@ const Campaign = () => {
             <div>
               <label className="block mb-2 font-medium">Referree Message*</label>
               <textarea 
-                className="w-full p-2 border rounded-md h-24"
+                className="w-full p-2 border rounded-md h-24 text-xs"
                 defaultValue="You've been invited! Sign up now and get 15% off your first order"
               ></textarea>
             </div>
@@ -273,7 +273,7 @@ const Campaign = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen p-6">
+    <div className=" h-full p-6">
       <div className="max-w-6xl mx-auto">
         {renderTabs()}
         {renderContent()}

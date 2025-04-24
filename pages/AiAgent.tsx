@@ -125,7 +125,7 @@ const AiAgent = () => {
     };
 
     return (
-        <div className="flex flex-col h-screen bg-gray-50 p-2">
+        <div className="flex flex-col h-full bg-gray-50 p-2">
             {/* Header */}
             <div className="flex justify-between items-center py-4 px-4 border-b border-gray-200">
                 <div className="flex items-center">

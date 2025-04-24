@@ -3,7 +3,6 @@ import React from "react";
 type StatusType = 'Completed' | 'In Progress' | 'Not Started';
 
 const CheckBox = ({ title, status }: { title: string; status: StatusType }) => {
-  console.log(`CheckBox ${title} received status: ${status}`);
 
   const getCircleStyle = () => {
     switch (status) {
