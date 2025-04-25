@@ -274,7 +274,7 @@ export default function PlatformLayout({
 
               {/* Modal */}
               <div
-                className="fixed z-50 bg-white rounded-lg shadow-lg w-96 overflow-hidden"
+                className="fixed z-50 bg-white border border-blue-400 rounded-xl shadow-lg w-96 overflow-hidden"
                 style={{
                   top: `${modalPosition.top}px`,
                   left: `${modalPosition.left}px`,
