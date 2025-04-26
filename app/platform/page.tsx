@@ -2,6 +2,7 @@
 import { cookies } from "next/headers";
 import { getUserFromToken } from "../lib/authutils"; 
 import { redirect } from "next/navigation";
+import PlatformLayout from "./layout";
 
 export default async function PlatformPage() {
   const cookieStore = cookies();
@@ -14,5 +15,5 @@ export default async function PlatformPage() {
   }
 
   // User is signed in
-  return <div>Welcome to your platform! User ID: {user.id}</div>;
+  return <></>
 }

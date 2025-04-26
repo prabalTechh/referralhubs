@@ -82,8 +82,10 @@ const dummyPages: Record<Page, React.ReactNode> = {
 
 export default function PlatformLayout({
   children,
+  user
 }: {
   children: React.ReactNode;
+  user: { id: string; email: string } | null;
 }) {
   const [activePage, setActivePage] = useState<Page>("Platform Setup");
   const [tourCompleted, setTourCompleted] = useState(false);
@@ -237,9 +239,9 @@ export default function PlatformLayout({
                 className="w-9 h-9 rounded-full object-cover"
               />
               <span>
-                <div className="font-medium text-sm">Kadin Stanton</div>
+                <div className="font-medium text-sm">{user?.email || "William"}</div>
                 <div className="text-gray-500 text-xs">
-                  kadinstanton@gmail.com
+                  {user?.id  || "lawsome@gmail.com"}
                 </div>
               </span>
             </div>

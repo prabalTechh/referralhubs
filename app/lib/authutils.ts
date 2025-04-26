@@ -6,7 +6,7 @@ export const getUserFromToken = (token: string | undefined) => {
 
   try {
     const secret = process.env.JWT_SECRET || "fallback_jwt_secret_not_for_production";
-    const decoded = jwt.verify(token, secret) as { id: string };
+    const decoded = jwt.verify(token, secret) as { id: string; email: string };
     return decoded;
   } catch (error) {
     console.error("Invalid token", error);
