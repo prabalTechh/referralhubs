@@ -80,13 +80,7 @@ const dummyPages: Record<Page, React.ReactNode> = {
   Payouts: <Payouts />,
 };
 
-export default function PlatformLayout({
-  children,
-  user
-}: {
-  children: React.ReactNode;
-  user: { id: string; email: string } | null;
-}) {
+export default function PlatformLayout( ) {
   const [activePage, setActivePage] = useState<Page>("Platform Setup");
   const [tourCompleted, setTourCompleted] = useState(false);
   const targetRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -239,9 +233,9 @@ export default function PlatformLayout({
                 className="w-9 h-9 rounded-full object-cover"
               />
               <span>
-                <div className="font-medium text-sm">{user?.email || "William"}</div>
+                <div className="font-medium text-sm">William</div>
                 <div className="text-gray-500 text-xs">
-                  {user?.id  || "lawsome@gmail.com"}
+                  lawsome@gmail.com
                 </div>
               </span>
             </div>
@@ -249,7 +243,7 @@ export default function PlatformLayout({
 
           <main className="flex-1 overflow-y-auto mx-6 p-2 bg-[#FFFFFF]">
             {dummyPages[activePage]}
-            {children}
+         
           </main>
         </div>
 
